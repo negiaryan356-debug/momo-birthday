@@ -117,10 +117,9 @@ Happy birthday once again. You deserve so much happiness, today and always. 🫶
 <p>Out of all the people I could've met, I'm glad I met you, Momo. ❤️</p>
 <div class="signature">Your favourite person ♡</div>
 <p>Made especially for you.</p>
-<button id="back">Read your letter again 💌</button>
+<button id="readAgain">Read my letter again 💌</button>
 </div>
 </section>
-
 <script>
 const ids=["intro","letterScreen","cakeScreen","memoriesScreen"];
 function show(id){
@@ -173,7 +172,6 @@ document.getElementById("galleryBtn").classList.remove("hidden");
 }
 };
 document.getElementById("galleryBtn").onclick=()=>show("memoriesScreen");
-document.getElementById("back").onclick=()=>show("letterScreen");
 if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
 setInterval(()=>{
 const h=document.createElement("span");
@@ -186,6 +184,7 @@ document.body.appendChild(h);
 setTimeout(()=>h.remove(),11000);
 },650);
 }
+  document.getElementById("readAgain").onclick = () => show("letterScreen");
 </script>
 </body>
 </html>
