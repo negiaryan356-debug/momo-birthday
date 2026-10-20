@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For Momo 💗</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(135deg,#fff2f7,#ffd9e8,#fff8f0);color:#77364f;font-family:Georgia,serif;text-align:center;min-height:100vh;overflow-x:hidden}
+.screen{min-height:100vh;padding:30px 16px;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.hidden{display:none!important}
+.card{background:#fffdf9ed;border:1px solid white;border-radius:24px;padding:28px 22px;width:min(540px,100%);box-shadow:0 12px 40px #a83c6820}
+h1{font-weight:normal;font-size:clamp(34px,8vw,48px);margin:18px 0}
+p{line-height:1.8}
+button{border:0;border-radius:30px;background:#b84270;color:white;padding:14px 22px;font-size:16px;cursor:pointer;margin:8px}
+button:disabled{opacity:.6}
+.eyebrow{font:12px Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;color:#b84270}
+.envelope{width:260px;height:160px;background:#f3a9c4;position:relative;margin:40px auto 28px;cursor:pointer;border-radius:5px;box-shadow:0 12px 25px #a83c6820}
+.envelope:before{content:"";position:absolute;inset:0;background:#f9c9da;clip-path:polygon(0 0,50% 62%,100% 0)}
+.envelope:after{content:"♥";position:absolute;top:55px;left:0;right:0;font-size:38px;color:#b84270}
+.paper{position:absolute;bottom:15px;left:8%;width:84%;height:110px;background:#fffaf7;padding:25px 8px;transition:.7s;font-size:18px}
+.envelope.open .paper{transform:translateY(-90px)}
+.letter{text-align:left;white-space:pre-line;font-size:16px}
+.signature{font-style:italic;color:#b84270;font-size:22px;margin:22px 0}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:25px 0}
+.photo{height:180px;background:#ffe3ed;border:6px solid white;box-shadow:0 3px 12px #77364f20;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:38px}
+.photo img{width:100%;height:100%;object-fit:cover}
+.cake-scene{height:230px;width:250px;margin:15px auto;position:relative}
+.plate{position:absolute;bottom:15px;left:5px;width:240px;height:20px;border-radius:50%;background:#efb1cc}
+.cake{position:absolute;bottom:35px;left:38px;width:175px;height:135px}
+.layer{position:absolute;height:42px;border-radius:9px;background:#e99ab8;border-bottom:6px solid #cc7897;opacity:0;transform:translateY(-30px);transition:.6s}
+#l1{bottom:0;width:175px}
+#l2{bottom:38px;left:10px;width:155px;background:#f5c0d3}
+#l3{bottom:76px;left:20px;width:135px}
+.layer.show{opacity:1;transform:translateY(0)}
+.frosting{position:absolute;bottom:110px;left:20px;width:135px;height:20px;background:#fff4f8;border-radius:50%;opacity:0;transition:.5s}
+.frosting.show{opacity:1}
+.candle{position:absolute;bottom:130px;left:82px;height:32px;width:12px;background:repeating-linear-gradient(45deg,white 0 5px,#e879a5 5px 10px);opacity:0}
+.candle.show{opacity:1}
+.flame{position:absolute;bottom:157px;left:81px;font-size:22px;animation:flicker .5s infinite alternate}
+.flame.off{display:none}
+@keyframes flicker{to{transform:scale(.8) rotate(8deg)}}
+.heart{position:fixed;bottom:-30px;pointer-events:none;animation:float 7s linear forwards;z-index:5}
+@keyframes float{to{transform:translateY(-110vh) rotate(30deg);opacity:0}}
+</style>
+</head>
+<body>
+
+<section class="screen" id="intro">
+<div class="eyebrow">A little surprise for someone special</div>
+<h1>For Momo 💗</h1>
+<p>Someone made a little something just for you. 🥹</p>
+<div class="envelope" id="env" role="button" tabindex="0" aria-label="Open letter">
+<div class="paper">A little letter<br>for you, Momo 💌</div>
+</div>
+<button id="open">Open your letter 💌</button>
+</section>
+
+<section class="screen hidden" id="letterScreen">
+<div class="card">
+<div class="eyebrow">From my heart to you</div>
+<h1>Happy Birthday, Momo! 🎀</h1>
+<div class="letter">Heyyy Momo! ❤️
+
+Happy birthday to youuu! I hope your day is full of happiness, laughter and all the little things that make you smile.
+
+I'm really glad we're getting closer nowadays. Talking to you has become one of my favourite parts of the day, and you probably don't even realise how much you make me smile.
+
+I love our random conversations, our teasing and the little moments we share. I hope we keep making more memories together and that this bond of ours keeps getting stronger.
+
+You genuinely mean a lot to me, Momo. I might not always say it properly, but I'm really happy you're a part of my life.
+
+Keep smiling, pretty girl, and never stop being the cute, slightly annoying Momo you are. 😂❤️
+
+Happy birthday once again. You deserve so much happiness, today and always. 🫶🏻</div>
+<div class="signature">Your favourite person ❤️</div>
+<p>P.S. You're not allowed to become any more annoying this year. 😂</p>
+<button id="toCake">Let's bake a cake 🎂</button>
+</div>
+</section>
+
+<section class="screen hidden" id="cakeScreen">
+<div class="card">
+<div class="eyebrow">Made with love</div>
+<h1 style="font-size:36px">A cake for Momo 🎂</h1>
+<p id="cakeText">Let's bake a little birthday sweetness just for you!</p>
+<div class="cake-scene">
+<div class="plate"></div>
+<div class="cake">
+<div class="layer" id="l1"></div>
+<div class="layer" id="l2"></div>
+<div class="layer" id="l3"></div>
+<div class="frosting" id="frost"></div>
+<div class="candle" id="cand"></div>
+<div class="flame" id="flame">🔥</div>
+</div>
+</div>
+<p id="hint">Step 1: Mix the ingredients! 🥣</p>
+<button id="bake">Mix ingredients 🥣</button>
+<p id="wish" class="hidden">Make a wish, Momo! 💗✨</p>
+<button id="galleryBtn" class="hidden">See our memories 📸</button>
+</div>
+</section>
+
+<section class="screen hidden" id="memoriesScreen">
+<div class="card">
+<div class="eyebrow">Little moments, lovely memories</div>
+<h1 style="font-size:36px">Us, in little moments 💗</h1>
+<p>Some pictures, some memories, and a person I'm glad I met.</p>
+<div class="gallery">
+<div class="photo"><img src="photos/photo1.jpg" alt="Memory 1" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span>📷</span></div>
+<div class="photo"><img src="photos/photo2.jpg" alt="Memory 2" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span>🌸</span></div>
+<div class="photo"><img src="photos/photo3.jpg" alt="Memory 3" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span>💗</span></div>
+<div class="photo"><img src="photos/photo4.jpg" alt="Memory 4" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span>🎀</span></div>
+</div>
+<p>Out of all the people I could've met, I'm glad I met you, Momo. ❤️</p>
+<div class="signature">Your favourite person ♡</div>
+<p>Made especially for you.</p>
+<button id="back">Read your letter again 💌</button>
+</div>
+</section>
+
+<script>
+const ids=["intro","letterScreen","cakeScreen","memoriesScreen"];
+function show(id){
+ids.forEach(x=>document.getElementById(x).classList.add("hidden"));
+document.getElementById(id).classList.remove("hidden");
+window.scrollTo(0,0);
+}
+let opened=false;
+function openLetter(){
+if(opened)return;
+opened=true;
+document.getElementById("env").classList.add("open");
+document.getElementById("open").disabled=true;
+setTimeout(()=>show("letterScreen"),700);
+}
+document.getElementById("open").onclick=openLetter;
+document.getElementById("env").onclick=openLetter;
+document.getElementById("env").onkeydown=e=>{
+if(e.key==="Enter"||e.key===" "){e.preventDefault();openLetter();}
+};
+document.getElementById("toCake").onclick=()=>show("cakeScreen");
+let step=0;
+const stages=[
+["l1","Mixing the sweetness together! 🥣","Now let's bake the layers!","Bake the cake 🔥"],
+["l2","The first layer is ready! 🍰","Adding another layer...","Add another layer 🎂"],
+["l3","Three lovely layers!","Time for pretty pink frosting!","Add frosting 💗"],
+["frost","A little frosting just for you!","Every cake needs a candle!","Add a candle 🕯️"],
+["cand","One candle for our birthday girl!","Let's light it!","Light the candle ✨"],
+["flame","Happy birthday, Momo! ❤️","Close your eyes and make a wish!","Blow out the candle 💨"]
+];
+document.getElementById("bake").onclick=()=>{
+const text=document.getElementById("cakeText");
+const hint=document.getElementById("hint");
+const btn=document.getElementById("bake");
+if(step<stages.length){
+const s=stages[step];
+if(s[0]==="flame")document.getElementById("flame").classList.remove("off");
+else document.getElementById(s[0]).classList.add("show");
+text.textContent=s[1];
+hint.textContent=s[2];
+btn.textContent=s[3];
+step++;
+}else{
+document.getElementById("flame").classList.add("off");
+text.textContent="Your wish has been sent to the universe! 💗";
+hint.textContent="Sending you the biggest birthday hug! 🫶🏻";
+document.getElementById("wish").classList.remove("hidden");
+btn.classList.add("hidden");
+document.getElementById("galleryBtn").classList.remove("hidden");
+}
+};
+document.getElementById("galleryBtn").onclick=()=>show("memoriesScreen");
+document.getElementById("back").onclick=()=>show("letterScreen");
+if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+setInterval(()=>{
+const h=document.createElement("span");
+h.className="heart";
+h.textContent=["♡","♥","💕","💗"][Math.floor(Math.random()*4)];
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=(14+Math.random()*20)+"px";
+h.style.animationDuration=(5+Math.random()*5)+"s";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),11000);
+},650);
+}
+</script>
+</body>
+</html>
